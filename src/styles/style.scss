@@ -1,0 +1,260 @@
+@use './variables.scss' as *;
+@use './custom_class.scss';
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap');
+
+body {
+  font-family: $base-font;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+navbar-list {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background-color: $base-color;
+}
+
+.logo {
+  color: $color-white;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    display: block;
+    min-width: 34px;
+    min-height: 34px;
+    padding-top: 10px;
+    color: $color-white;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: $font-semi-bold;
+  }
+}
+
+#navbar-button {
+  background-color: $base-color;
+  border: none;
+}
+
+.burger {
+  display: none;
+
+  div {
+    width: 25px;
+    height: 2px;
+    background-color: rgb(226, 226, 226);
+    margin: 5px;
+    transition: all 0.3s ease;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .nav-links {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  .nav-links {
+    position: fixed;
+    right: 0px;
+    height: 92vh;
+    top: 8vh;
+    background-color: $base-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+
+    li {
+      opacity: 0;
+    }
+  }
+
+  .burger {
+    display: block !important;
+    cursor: pointer !important;
+  }
+}
+
+.nav-active {
+  transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-4px, 6px);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-4px, -6px);
+}
+
+.hero-container {
+  margin-top: 8vh;
+  width: 100%;
+  height: 72vh;
+  background-color: brown;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  h2 {
+    width: 40%;
+    text-align: left;
+    margin-left: 10vw;
+    line-height: 1.2;
+    font-size: 3em;
+    padding-top: 15vh;
+    color: $color-white;
+    letter-spacing: 1.3px;
+  }
+
+  h3 {
+    width: 30%;
+    text-align: left;
+    margin-left: 10vw;
+    font-size: 2em;
+    margin-top: 4vh;
+    color: $color-white;
+    letter-spacing: 1.3px;
+  }
+
+  button {
+    text-align: left;
+    margin-left: 10vw;
+    font-size: 1.5em;
+    margin-top: 3vh;
+    background-color: $base-color-dark;
+    color: $color-white;
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: none;
+    letter-spacing: 1.3px;
+    cursor: pointer;
+    transition: ease-in 0.2s;
+    min-width: 34px;
+    min-height: 34px;
+  }
+  button:hover {
+    background-color: $base-color-darker;
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .hero-container {
+    h2 {
+      width: 68%;
+      font-size: 2.5em;
+    }
+    h3 {
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .hero-container {
+    h2 {
+      font-size: 2em;
+    }
+    h3 {
+      font-size: 1.5em;
+    }
+    button {
+      margin-top: 4vh;
+      font-size: 1.2em;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    background-color: seagreen;
+    display: grid;
+    grid-template-areas: 'text1' 'illustrations' 'text2';
+  }
+}
+
+#about-us {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  padding-bottom: 50px;
+  .container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5vh;
+    display: grid;
+    grid-template-areas:
+      'illustrations illustrations text1 '
+      'illustrations illustrations text2';
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    background-color: seagreen;
+    grid-template-areas:
+      'illustrations illustrations text2 '
+      'illustrations illustrations text1';
+  }
+}
+
+.item {
+}
+
+.illustrations {
+  background-color: darkgoldenrod;
+  grid-area: illustrations;
+}
+.text1 {
+  background-color: cornflowerblue;
+  grid-area: text1;
+}
+.text2 {
+  background-color: salmon;
+  grid-area: text2;
+}
