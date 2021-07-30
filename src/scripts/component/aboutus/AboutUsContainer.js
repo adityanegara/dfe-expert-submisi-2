@@ -10,13 +10,13 @@ class AboutUsContainer extends HTMLElement {
     this.innerHTML = `
         <div class="container">
             <div class=" illustrations">
-                <img src="${this.illustration}" alt="Illustration" />
+                <img  tabindex = "0" src="${this.illustration}" alt="Illustration" />
             </div>
             <div class=" text1">
-                <h2>${this.text1}</h2>
+                <h2  tabindex = "0">${this.text1}</h2>
             </div>
             <div class=" text2">
-                <p>
+                <p  tabindex = "0">
                     ${this.text2}
                 </p>
             </div>

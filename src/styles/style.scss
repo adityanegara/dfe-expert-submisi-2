@@ -1,5 +1,6 @@
 @use './variables.scss' as *;
 @use './custom_class.scss';
+@use './main_section.scss';
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap');
 
 body {
@@ -40,9 +41,9 @@ navbar-list {
 
   a {
     display: block;
-    min-width: 34px;
-    min-height: 34px;
-    padding-top: 10px;
+    min-width: 44px;
+    min-height: 44px;
+    padding-top: 15px;
     color: $color-white;
     text-decoration: none;
     letter-spacing: 3px;
@@ -174,15 +175,15 @@ navbar-list {
     letter-spacing: 1.3px;
     cursor: pointer;
     transition: ease-in 0.2s;
-    min-width: 34px;
-    min-height: 34px;
+    min-width: 44px;
+    min-height: 44px;
   }
   button:hover {
     background-color: $base-color-darker;
   }
 }
 
-@media screen and (max-width: 870px) {
+@media screen and (max-width: 1200px) {
   .hero-container {
     h2 {
       width: 68%;
@@ -194,7 +195,7 @@ navbar-list {
   }
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 600px) {
   .hero-container {
     h2 {
       font-size: 2em;
@@ -332,8 +333,9 @@ footer {
       li {
         list-style: none;
         a {
-          min-width: 34px;
-          min-height: 34px;
+          padding-top: 10px !important;
+          min-width: 44px;
+          min-height: 44px;
           display: block;
           text-decoration: none;
           color: $color-white;
