@@ -9,13 +9,13 @@ class AboutUsContainer extends HTMLElement {
   render() {
     this.innerHTML = `
         <div class="container">
-            <div class="item illustrations">
-                <img src="${this.illustration}" alt="" />
+            <div class=" illustrations">
+                <img src="${this.illustration}" alt="Illustration" />
             </div>
-            <div class="item text1">
+            <div class=" text1">
                 <h2>${this.text1}</h2>
             </div>
-            <div class="item text2">
+            <div class=" text2">
                 <p>
                     ${this.text2}
                 </p>

@@ -4,6 +4,25 @@
   position: relative;
 }
 
+.hover-underline-animation-30 {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-underline-animation-30:after {
+  content: '';
+  position: absolute;
+  width: 35%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+
+  background-color: $color-white;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
 .hover-underline-animation:after {
   content: '';
   position: absolute;
@@ -19,6 +38,11 @@
 }
 
 .hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.hover-underline-animation-30:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }

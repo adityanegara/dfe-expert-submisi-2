@@ -3,6 +3,7 @@ import '../styles/style.scss';
 import './component/navbar/navbar-list';
 import './component/hero/HeroContainer';
 import './component/aboutus/AboutUsContainer';
+import './component/footer/FooterContainer';
 import links from './component/navbar/navbar-links';
 import navSlide from './utils/navbar_animation';
 
