@@ -7,13 +7,19 @@ import './component/footer/FooterContainer';
 import './component/restaurants/restaurant-list';
 import restaurantsData from './component/restaurants/restaurants-data';
 import links from './component/navbar/navbar-links';
-import navSlide from './utils/navbar_animation';
+import App from './views/app';
 
 const renderNavbar = (navbarLinks) => {
   const navbarContainer = document.getElementById('nav-container');
   const navbarListElement = document.createElement('navbar-list');
   navbarListElement.navbarLinks = navbarLinks;
   navbarContainer.appendChild(navbarListElement);
+  // eslint-disable-next-line no-unused-vars
+  const app = new App({
+    navElement: document.querySelector('.nav-links'),
+    navLinksElement: document.querySelectorAll('.nav-links li'),
+    burgerElement: document.querySelector('.burger'),
+  });
 };
 
 const renderRestaurant = (restaurants) => {
@@ -25,4 +31,3 @@ const renderRestaurant = (restaurants) => {
 
 renderNavbar(links);
 renderRestaurant(restaurantsData);
-navSlide();
