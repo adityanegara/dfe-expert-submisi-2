@@ -1,7 +1,7 @@
 const links = [
   {
     id: 1,
-    href: '/',
+    href: '#/near-you',
     caption: 'Home',
     tabindex: 0,
   },

@@ -14,12 +14,11 @@ const renderNavbar = (navbarLinks) => {
   const navbarListElement = document.createElement('navbar-list');
   navbarListElement.navbarLinks = navbarLinks;
   navbarContainer.appendChild(navbarListElement);
-  console.log(document.getElementById('main'));
   const app = new App({
     navElement: document.querySelector('.nav-links'),
     navLinksElement: document.querySelectorAll('.nav-links li'),
     burgerElement: document.querySelector('.burger'),
-    contentElement: document.getElementById('main'),
+    contentElement: document.getElementById('content'),
   });
   return app;
 };
