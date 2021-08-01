@@ -7,7 +7,7 @@ const links = [
   },
   {
     id: 2,
-    href: '#',
+    href: '#/favorite',
     caption: 'Favorite',
     tabindex: 0,
   },

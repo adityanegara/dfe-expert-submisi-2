@@ -1,7 +1,5 @@
 const DrawerInitiator = {
   init({ navElement, navLinksElement, burgerElement }) {
-    console.log(burgerElement);
-    console.log(navElement);
     burgerElement.addEventListener('click', () => {
       this._toggleDrawer(navElement, navLinksElement, burgerElement);
     });

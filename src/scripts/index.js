@@ -14,12 +14,14 @@ const renderNavbar = (navbarLinks) => {
   const navbarListElement = document.createElement('navbar-list');
   navbarListElement.navbarLinks = navbarLinks;
   navbarContainer.appendChild(navbarListElement);
-  // eslint-disable-next-line no-unused-vars
+  console.log(document.getElementById('main'));
   const app = new App({
     navElement: document.querySelector('.nav-links'),
     navLinksElement: document.querySelectorAll('.nav-links li'),
     burgerElement: document.querySelector('.burger'),
+    contentElement: document.getElementById('main'),
   });
+  return app;
 };
 
 const renderRestaurant = (restaurants) => {
@@ -29,5 +31,12 @@ const renderRestaurant = (restaurants) => {
   restaurantContainer.appendChild(restaurantListElement);
 };
 
-renderNavbar(links);
+const app = renderNavbar(links);
 renderRestaurant(restaurantsData);
+window.addEventListener('hashchange', () => {
+  app.renderPage();
+});
+
+window.addEventListener('load', () => {
+  app.renderPage();
+});

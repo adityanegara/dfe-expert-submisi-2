@@ -15,6 +15,7 @@ module.exports = {
     'import/no-extraneous-dependencies': ["error", {"devDependencies": true}],
     'no-console': ["error", {allow : ["warn", "error", "log"]}],
     'no-underscore-dangle': ["error", { "allowAfterThis": true }],
-    'no-param-reassign': ["error", {"props" : false}]
+    'no-param-reassign': ["error", {"props" : false}],
+    'quotes' : ["error", "single", {"allowTemplateLiterals": true}],
   },
 };
