@@ -1,3 +1,124 @@
+@use './variables.scss' as *;
 .restaurant-detail {
-  background-color: cadetblue;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  color: $color-black;
+  display: grid;
+  column-gap: 10px;
+  grid-template-columns: 5fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.3fr 1fr 0.3fr 1fr;
+  grid-template-areas:
+    'restaurant-image restaurant-name restaurant-name restaurant-name restaurant-name'
+    'restaurant-image restaurant-description restaurant-description  restaurant-description restaurant-description'
+    'restaurant-image restaurant-info restaurant-foods restaurant-drinks restaurant-reviews'
+    'restaurant-image restaurant-content restaurant-content restaurant-content restaurant-content';
+  button {
+    width: 100%;
+    height: 100%;
+    min-width: 44px;
+    min-height: 44px;
+    border: none;
+    font-size: 1em;
+    border: 1px solid $base-color-darker;
+    color: $color-white;
+    background-color: $base-color;
+    transition: ease-in 0.2s;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: $base-color-darker;
+  }
+
+  .active {
+    background-color: $base-color-darker;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .restaurant-detail {
+    grid-template-columns: 1fr 1fr 1fr 1fr !important;
+    grid-template-rows: 3fr 0.3fr 1fr 0.5fr 1fr;
+    grid-template-areas:
+      'restaurant-image restaurant-image restaurant-image restaurant-image'
+      'restaurant-name restaurant-name restaurant-name restaurant-name'
+      'restaurant-description restaurant-description restaurant-description restaurant-description'
+      'restaurant-info restaurant-foods restaurant-drinks restaurant-reviews'
+      'restaurant-content restaurant-content restaurant-content restaurant-content';
+  }
+}
+
+@media screen and(max-width : 480px) {
+  .restaurant-detail {
+    width: 100% !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 0.2fr 1fr 0.3fr 0.3fr 1fr;
+    column-gap: 0px;
+    grid-template-areas:
+      'restaurant-image restaurant-image'
+      'restaurant-name restaurant-name'
+      'restaurant-description restaurant-description'
+      'restaurant-info restaurant-foods'
+      'restaurant-drinks restaurant-reviews'
+      'restaurant-content restaurant-content' !important;
+  }
+}
+
+.restaurant-name {
+  grid-area: restaurant-name;
+  p {
+    margin-top: 3vh;
+    font-size: 1.5em;
+  }
+}
+
+.restaurant-description {
+  grid-area: restaurant-description;
+  padding-bottom: 2vh;
+  padding-top: 2vh;
+  p {
+    text-indent: 30px;
+    font-size: 1.1em;
+  }
+}
+
+.restaurant-image {
+  display: flex;
+  justify-content: center;
+  grid-area: restaurant-image;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.restaurant-info {
+  grid-area: restaurant-info;
+}
+
+.restaurant-foods {
+  grid-area: restaurant-foods;
+}
+.restaurant-drinks {
+  grid-area: restaurant-drinks;
+}
+
+.restaurant-reviews {
+  grid-area: restaurant-reviews;
+}
+
+.restaurant-content {
+  display: flex;
+  justify-content: center;
+  grid-area: restaurant-content;
+  margin-top: 2vh;
+  ul {
+    li {
+      font-size: 1.2em;
+      margin-top: 1px;
+      list-style: none;
+    }
+  }
 }

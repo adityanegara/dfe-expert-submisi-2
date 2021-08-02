@@ -41,29 +41,24 @@ const renderReviews = (reviews) => {
 
 const createRestaurantDetailTemplate = (restaurant) => `
   <div class = "restaurant-item restaurant-name"><p>${restaurant.name}</p></div>
+  <div class = "restaurant-item restaurant-description"><p>${restaurant.description}</p></div>
   <div class = "restaurant-item restaurant-image">
-    <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Image Of ${restaurant.name}">
+    <img src = " ${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt ="Picture of ${restaurant.name}"></img>
   </div>
-  <div class = "restaurant-item restaurant-address">
-    <p>${restaurant.address}</p>
-  </div>
-  <div class = "restaurant-item restaurant-city">
-    <p>${restaurant.city}</p>
-  </div>
-  <div class = "restaurant-item restaurant-description">
-    <p>${restaurant.description}</p>
+  <div class ="restaurant-item restaurant-info ">
+    <button aria-label="Info restaurant button" class ="active" id="info-button">Info</button>
   </div>
   <div class = "restaurant-item restaurant-foods">
-    <h1>Foods</h1>
+    <button aria-label="menu foods restaurant button" id="foods-button">Foods</button>
+  </div>
+  <div class = "restaurant-item restaurant-drinks">
+    <button aria-label="menu drinks restaurant button" id="drinks-button">Drinks</button>
+  </div>
+  <div class = "restaurant-item restaurant-reviews">
+    <button aria-label="menu reviews restaurant button" id="reviews-button">Reviews</button>
+  </div>
+  <div class ="restaurant-item restaurant-content">
     ${renderMenus(restaurant.menus.foods)}
-  </div>
-  <div class = "restaurant-item restaurant-drinks">
-    <h1>Drinks</h1>
-    ${renderMenus(restaurant.menus.drinks)}
-  </div>
-  <div class = "restaurant-item restaurant-drinks">
-    <h1>Reviews</h1>
-    ${renderReviews(restaurant.customerReviews)}
   </div>
   `;
 
