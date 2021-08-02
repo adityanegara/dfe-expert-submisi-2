@@ -5,7 +5,6 @@ import './component/hero/HeroContainer';
 import './component/aboutus/AboutUsContainer';
 import './component/footer/FooterContainer';
 import './component/restaurants/restaurant-list';
-import restaurantsData from './component/restaurants/restaurants-data';
 import links from './component/navbar/navbar-links';
 import App from './views/app';
 
@@ -18,20 +17,12 @@ const renderNavbar = (navbarLinks) => {
     navElement: document.querySelector('.nav-links'),
     navLinksElement: document.querySelectorAll('.nav-links li'),
     burgerElement: document.querySelector('.burger'),
-    contentElement: document.getElementById('content'),
+    contentElement: document.getElementById('main'),
   });
   return app;
 };
 
-const renderRestaurant = (restaurants) => {
-  const restaurantContainer = document.getElementById('restaurants-container');
-  const restaurantListElement = document.createElement('restaurant-list');
-  restaurantListElement.restaurants = restaurants;
-  restaurantContainer.appendChild(restaurantListElement);
-};
-
 const app = renderNavbar(links);
-renderRestaurant(restaurantsData);
 window.addEventListener('hashchange', () => {
   app.renderPage();
 });

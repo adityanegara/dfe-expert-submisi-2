@@ -1,16 +1,19 @@
 import UrlParser from '../../routes/url-parser';
 import RestaurantSource from '../../data/restaurants-soruce';
+import { createRestaurantDetailTemplate } from '../templates/template-creator';
 
 const DetailPage = {
   async render() {
-    return `<h2>Detail Restaurant</h2>`;
+    return `<h2>Detail Restaurant</h2>
+            <div class = "restaurant-detail"></div>`;
   },
 
-  // eslint-disable-next-line no-empty-function
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantSource.detailRestaurant(url.id);
-    console.log(restaurant);
+    const detailRestaurantContainer = document.querySelector('.restaurant-detail');
+    console.log(restaurant.restaurant.menus);
+    detailRestaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant.restaurant);
   },
 };
 

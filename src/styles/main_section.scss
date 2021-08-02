@@ -7,7 +7,7 @@ main {
     font-size: 1.5em;
     color: $base-color-darker;
   }
-  restaurant-list {
+  .restaurants-container {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -23,11 +23,11 @@ main {
     height: fit-content;
     color: $color-white;
     border-radius: 10px;
-    padding-bottom: 25px;
+    padding-bottom: 3%;
     background-color: $base-color-darker;
     img {
       width: 100%;
-      height: 70%;
+      height: 275px;
       padding: 15px;
       border-radius: 30px;
     }
@@ -66,32 +66,37 @@ main {
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-      -webkit-line-clamp: 2; /* number of lines to show */
+      -webkit-line-clamp: 3; /* number of lines to show */
       -webkit-box-orient: vertical;
       grid-area: restaurant-description;
     }
-    .restaurant-button {
+    .restaurant-detail-link {
       min-height: 44px;
       min-height: 44px;
-      background-color: $color-white;
-      cursor: pointer;
-      grid-area: restaurant-button;
-      border: none;
-      padding-top: 0.5vh;
-      padding-bottom: 0.5vh;
-      border-radius: 5px;
       font-size: 1.2em;
+      color: $color-white;
+      text-decoration: none;
+      margin-top: 1vh;
       transition: ease-in 0.2s;
     }
-    .restaurant-button:hover {
-      color: $base-color-darker;
+    .restaurant-detail-link::after {
+      content: '';
+      width: 0px;
+      height: 2px;
+      display: block;
+      background: $color-white;
+      transition: 300ms;
+    }
+
+    .restaurant-detail-link:hover::after {
+      width: 50%;
     }
   }
 }
 
 @media screen and (max-width: 800px) {
   main {
-    restaurant-list {
+    .restaurants-container {
       grid-template-columns: 1fr 1fr;
     }
   }
@@ -99,7 +104,7 @@ main {
 
 @media screen and (max-width: 580px) {
   main {
-    restaurant-list {
+    .restaurants-container {
       width: 100%;
       grid-template-columns: 1fr;
       row-gap: 20 px;

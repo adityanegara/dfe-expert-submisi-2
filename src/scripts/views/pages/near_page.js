@@ -1,14 +1,20 @@
 import RestaurantSource from '../../data/restaurants-soruce';
+import { createRestaurantTemplate } from '../templates/template-creator';
 
 const NearPage = {
   async render() {
-    return `<h2>Restaurant Near You Page</h2>`;
+    return `<h3 tabindex="0">Restaurants Near You</h3>
+            <div class="restaurants-container">
+            </div>`;
   },
 
   // eslint-disable-next-line no-empty-function
   async afterRender() {
     const restaurants = await RestaurantSource.restaurantList();
-    console.log(restaurants);
+    const restaurantsContainer = document.querySelector('.restaurants-container');
+    restaurants.forEach((restaurant) => {
+      restaurantsContainer.innerHTML += createRestaurantTemplate(restaurant);
+    });
   },
 };
 
