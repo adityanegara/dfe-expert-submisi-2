@@ -25,8 +25,8 @@ const createRestaurantTemplate = (restaurant) => `
 
 const renderMenus = (menus) => {
   let stringMenus = ``;
-  menus.forEach((menu) => {
-    stringMenus += `<li>${menu.name}</li>`;
+  menus.forEach((menu, i) => {
+    stringMenus += `<li>${i + 1}) ${menu.name}</li>`;
   });
   return `<ul>${stringMenus}</ul>`;
 };
@@ -37,6 +37,19 @@ const renderReviews = (reviews) => {
     stringReviews += `<li>${review.name} : ${review.review} (${review.date})</li>`;
   });
   return `<ul>${stringReviews}</ul>`;
+};
+
+const renderInfo = (restaurant) => {
+  let stringCategories = ``;
+  restaurant.categories.forEach((category) => {
+    stringCategories += `${category.name} , `;
+  });
+  return `<ul> 
+    <li> Address  : ${restaurant.address}</li>
+    <li> City : ${restaurant.city}</li>
+    <li> Categories : ${stringCategories}</li>
+    <li> Rating : ${restaurant.rating}</li>
+  </ul>`;
 };
 
 const createRestaurantDetailTemplate = (restaurant) => `
@@ -58,8 +71,10 @@ const createRestaurantDetailTemplate = (restaurant) => `
     <button aria-label="menu reviews restaurant button" id="reviews-button">Reviews</button>
   </div>
   <div class ="restaurant-item restaurant-content">
-    ${renderMenus(restaurant.menus.foods)}
+    ${renderInfo(restaurant)}
   </div>
   `;
 
-export { createRestaurantTemplate, createRestaurantDetailTemplate };
+export {
+  createRestaurantTemplate, createRestaurantDetailTemplate, renderMenus, renderInfo, renderReviews,
+};
