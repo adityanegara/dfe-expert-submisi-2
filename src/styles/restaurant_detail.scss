@@ -139,18 +139,51 @@
 }
 
 .like {
+  min-width: 44px;
+  min-height: 44px;
   font-size: 18px;
   position: fixed;
   bottom: 16px;
   right: 16px;
-  background-color: #db0000;
-  color: white;
-  border: 0;
-  border-radius: 50%;
-  width: 55px;
-  height: 55px;
+  background-color: $color-white;
+  border: 2px solid $base-color-darker;
+  color: $base-color;
+  padding: 10px;
+  border-radius: 5px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: ease-in 0.2s;
+}
+
+.like:hover {
+  background-color: $base-color-darker;
+  border: 2px solid $base-color-darker;
+  color: $color-white;
+}
+
+.liked {
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 18px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background-color: $base-color-darker;
+  border: 2px solid $base-color-darker;
+  color: $color-white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: ease-in 0.2s;
+}
+
+.liked:hover {
+  background-color: $color-white;
+  border: 2px solid $base-color-darker;
+  color: $base-color;
 }
