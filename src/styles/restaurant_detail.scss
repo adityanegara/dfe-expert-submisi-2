@@ -128,6 +128,16 @@
     background-color: $color-white;
     border: 1px solid $base-color;
     border-radius: 5px;
+    .give-review {
+      background-color: $color-gray;
+      input {
+        min-width: 44px;
+        min-height: 44px;
+        width: 100%;
+        border-radius: 10px;
+        border: none;
+      }
+    }
     li {
       font-size: 1.2em;
       margin-top: 5px;

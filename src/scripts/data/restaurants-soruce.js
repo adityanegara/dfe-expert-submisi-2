@@ -27,8 +27,22 @@ class RestaurantSource {
     return response.json();
   }
 
-  static async reviewRestaurant() {
-    console.log('give review');
+  static async reviewRestaurant(restaurantId, reviewerName, reviewReview) {
+    try {
+      const rawResponse = await fetch(API_ENDPOINT.REVIEW, {
+        method: 'POST',
+        headers: {
+          'X-Auth-Token': '12345',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: restaurantId, name: reviewerName, review: reviewReview }),
+      });
+      const content = await rawResponse.json();
+      return content.customerReviews;
+    } catch (er) {
+      console.log(er);
+      return false;
+    }
   }
 }
 

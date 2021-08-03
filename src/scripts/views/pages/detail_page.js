@@ -35,6 +35,19 @@ const DetailPage = {
     }
   },
 
+  _giveReview(id) {
+    const giveReviewButton = document.getElementById('give-review-button');
+    const yourNameInput = document.getElementById('your-name');
+    const yourReviewInput = document.getElementById('your-review');
+    giveReviewButton.addEventListener('click', async () => {
+      const reviewerName = yourNameInput.value;
+      const review = yourReviewInput.value;
+      const reviewResponse = await RestaurantSource.reviewRestaurant(id, reviewerName, review);
+      console.log(reviewResponse);
+      const contentElement = document.querySelector('.restaurant-content');
+      contentElement.innerHTML = renderReviews(reviewResponse);
+    });
+  },
   _detailContent(restaurant) {
     const contentElement = document.querySelector('.restaurant-content');
     const infoButton = document.querySelector('#info-button');
@@ -68,6 +81,7 @@ const DetailPage = {
       drinksButton.classList.remove('active');
       foodsButton.classList.remove('active');
       infoButton.classList.remove('active');
+      this._giveReview(restaurant.id);
     });
   },
 };

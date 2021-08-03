@@ -36,7 +36,21 @@ const renderReviews = (reviews) => {
   reviews.forEach((review) => {
     stringReviews += `<li tabindex="0">${review.name} : ${review.review} (${review.date})</li>`;
   });
-  return `<ul>${stringReviews}</ul>`;
+  return `<ul>
+            ${stringReviews}
+            <li tabindex="0" class="give-review">Your Review</li>
+            <li tabindex="0" class="give-review">
+              <label  for="your-name">Name:</label>
+              <input type="text" id="your-name" name="your-name">
+            </li>
+            <li tabindex="0" class="give-review">
+              <label  for="your-review">Review:</label>
+              <input type="text" id="your-review" name="your-review">
+            </li>
+            <li tabindex="0" class="give-review">
+              <button id="give-review-button" aria-label="give review button">Give Review</button>
+            </li>
+          </ul>`;
 };
 
 const renderInfo = (restaurant) => {
@@ -49,7 +63,9 @@ const renderInfo = (restaurant) => {
     <li tabindex="0"> City : ${restaurant.city}</li>
     <li tabindex="0"> Categories : ${stringCategories}</li>
     <li tabindex="0"> Rating : ${restaurant.rating}</li>
-  </ul>`;
+  </ul>
+ 
+  `;
 };
 
 const createRestaurantDetailTemplate = (restaurant) => `
