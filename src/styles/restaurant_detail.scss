@@ -128,16 +128,6 @@
     background-color: $color-white;
     border: 1px solid $base-color;
     border-radius: 5px;
-    .give-review {
-      background-color: $color-gray;
-      input {
-        min-width: 44px;
-        min-height: 44px;
-        width: 100%;
-        border-radius: 10px;
-        border: none;
-      }
-    }
     li {
       font-size: 1.2em;
       margin-top: 5px;
@@ -196,4 +186,53 @@
   background-color: $color-white;
   border: 2px solid $base-color-darker;
   color: $base-color;
+}
+
+.give-review {
+  display: flex;
+  background-color: $base-color;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin-bottom: 3vh;
+  padding-bottom: 3vh;
+  padding-top: 3vh;
+  font-size: 1.2em;
+  color: white;
+  label {
+    margin-left: 2vw;
+  }
+  input {
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 5px;
+    border: none;
+    width: auto;
+    margin-left: 2vw;
+  }
+
+  button {
+    margin-left: 2vw;
+    min-width: 44px;
+    min-height: 44px;
+    background-color: white;
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    color: $base-color;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .give-review {
+    display: block;
+    input {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+  }
 }

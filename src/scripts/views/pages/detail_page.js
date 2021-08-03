@@ -12,8 +12,16 @@ import {
 const DetailPage = {
   async render() {
     return `<div class="warning"><h3>Loading Data...</h3></div>
-            <div class = "restaurant-detail"></div>       
-            <div id="likeButtonContainer"></div>`;
+            <div class = "restaurant-detail"></div>
+            <div id="likeButtonContainer"></div>
+            <div class ="give-review">
+              <label for="your-name">Review name:</label>
+              <input type="text" id="your-name" name="your-name">
+              <label for="your-review">Reviews :</label>
+              <input type="text" id="your-review" name="your-review"><br><br>
+              <button aria-label="submit review button" id="give-review-button">Submit</button>
+            </div> 
+        `;
   },
 
   async afterRender() {
@@ -25,6 +33,7 @@ const DetailPage = {
       const { restaurant } = response;
       detailRestaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
       this._detailContent(restaurant);
+      this._giveReview(restaurant.id);
       LikeButtonInitiator.init({
         likeButtonContainer: document.querySelector('#likeButtonContainer'),
         restaurant,
@@ -40,6 +49,7 @@ const DetailPage = {
     const yourNameInput = document.getElementById('your-name');
     const yourReviewInput = document.getElementById('your-review');
     giveReviewButton.addEventListener('click', async () => {
+      console.log('Click Give Review');
       const reviewerName = yourNameInput.value;
       const review = yourReviewInput.value;
       const reviewResponse = await RestaurantSource.reviewRestaurant(id, reviewerName, review);
@@ -81,7 +91,6 @@ const DetailPage = {
       drinksButton.classList.remove('active');
       foodsButton.classList.remove('active');
       infoButton.classList.remove('active');
-      this._giveReview(restaurant.id);
     });
   },
 };

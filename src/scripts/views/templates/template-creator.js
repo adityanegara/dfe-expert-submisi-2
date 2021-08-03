@@ -38,18 +38,6 @@ const renderReviews = (reviews) => {
   });
   return `<ul>
             ${stringReviews}
-            <li tabindex="0" class="give-review">Your Review</li>
-            <li tabindex="0" class="give-review">
-              <label  for="your-name">Name:</label>
-              <input type="text" id="your-name" name="your-name">
-            </li>
-            <li tabindex="0" class="give-review">
-              <label  for="your-review">Review:</label>
-              <input type="text" id="your-review" name="your-review">
-            </li>
-            <li tabindex="0" class="give-review">
-              <button id="give-review-button" aria-label="give review button">Give Review</button>
-            </li>
           </ul>`;
 };
 
