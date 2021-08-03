@@ -5,6 +5,7 @@ import './component/hero/HeroContainer';
 import './component/aboutus/AboutUsContainer';
 import './component/footer/FooterContainer';
 import './component/restaurants/restaurant-list';
+import swRegister from './utils/sw-register';
 import links from './component/navbar/navbar-links';
 import App from './views/app';
 
@@ -29,4 +30,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
+  swRegister();
 });
