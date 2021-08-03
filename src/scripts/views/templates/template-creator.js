@@ -89,6 +89,9 @@ const createLikedButtonTemplate = () => `
   </button>
 `;
 
+const errorWarningTemplate = () => `
+  <h3 tabindex="0">There is Something Wrong When Fetching Data</h3>
+ `;
 export {
   createRestaurantTemplate,
   createRestaurantDetailTemplate,
@@ -96,4 +99,5 @@ export {
   renderReviews,
   createLikeButtonTemplate,
   createLikedButtonTemplate,
+  errorWarningTemplate,
 };

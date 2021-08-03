@@ -6,25 +6,33 @@ import {
   renderInfo,
   renderMenus,
   renderReviews,
+  errorWarningTemplate,
 } from '../templates/template-creator';
 
 const DetailPage = {
   async render() {
-    return `<div class = "restaurant-detail"></div>
+    return `<div class="warning"><h3>Loading Data...</h3></div>
+            <div class = "restaurant-detail"></div>       
             <div id="likeButtonContainer"></div>`;
   },
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const response = await RestaurantSource.detailRestaurant(url.id);
-    const { restaurant } = response;
     const detailRestaurantContainer = document.querySelector('.restaurant-detail');
-    detailRestaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
-    this._detailContent(restaurant);
-    LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant,
-    });
+    const warningElement = document.querySelector('.warning');
+    const response = await RestaurantSource.detailRestaurant(url.id);
+    if (response !== false) {
+      const { restaurant } = response;
+      detailRestaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
+      this._detailContent(restaurant);
+      LikeButtonInitiator.init({
+        likeButtonContainer: document.querySelector('#likeButtonContainer'),
+        restaurant,
+      });
+      warningElement.innerHTML = '';
+    } else {
+      warningElement.innerHTML = errorWarningTemplate();
+    }
   },
 
   _detailContent(restaurant) {
