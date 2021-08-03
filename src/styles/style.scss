@@ -53,6 +53,8 @@ navbar-list {
 }
 
 #navbar-button {
+  min-width: 44px !important;
+  min-height: 44px !important;
   background-color: $base-color;
   border: none;
 }
