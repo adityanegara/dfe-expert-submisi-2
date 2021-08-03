@@ -26,7 +26,7 @@ const createRestaurantTemplate = (restaurant) => `
 const renderMenus = (menus) => {
   let stringMenus = ``;
   menus.forEach((menu, i) => {
-    stringMenus += `<li>${i + 1}) ${menu.name}</li>`;
+    stringMenus += `<li tabindex="0">${i + 1}) ${menu.name}</li>`;
   });
   return `<ul>${stringMenus}</ul>`;
 };
@@ -34,7 +34,7 @@ const renderMenus = (menus) => {
 const renderReviews = (reviews) => {
   let stringReviews = ``;
   reviews.forEach((review) => {
-    stringReviews += `<li>${review.name} : ${review.review} (${review.date})</li>`;
+    stringReviews += `<li tabindex="0">${review.name} : ${review.review} (${review.date})</li>`;
   });
   return `<ul>${stringReviews}</ul>`;
 };
@@ -45,18 +45,20 @@ const renderInfo = (restaurant) => {
     stringCategories += `${category.name} , `;
   });
   return `<ul> 
-    <li> Address  : ${restaurant.address}</li>
-    <li> City : ${restaurant.city}</li>
-    <li> Categories : ${stringCategories}</li>
-    <li> Rating : ${restaurant.rating}</li>
+    <li tabindex="0"> Address  : ${restaurant.address}</li>
+    <li tabindex="0"> City : ${restaurant.city}</li>
+    <li tabindex="0"> Categories : ${stringCategories}</li>
+    <li tabindex="0"> Rating : ${restaurant.rating}</li>
   </ul>`;
 };
 
 const createRestaurantDetailTemplate = (restaurant) => `
-  <div class = "restaurant-item restaurant-name"><p>${restaurant.name}</p></div>
-  <div class = "restaurant-item restaurant-description"><p>${restaurant.description}</p></div>
+  <div class = "restaurant-item restaurant-name"><p tabindex="0">${restaurant.name}</p></div>
+  <div class = "restaurant-item restaurant-description"><p tabindex="0">${restaurant.description}</p></div>
   <div class = "restaurant-item restaurant-image">
-    <img src = " ${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt ="Picture of ${restaurant.name}"></img>
+    <img src = " ${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" 
+      alt ="Picture of ${restaurant.name}"
+      tabindex="0"></img>
   </div>
   <div class ="restaurant-item restaurant-info ">
     <button aria-label="Info restaurant button" class ="active" id="info-button">Info</button>
